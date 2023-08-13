@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+  <title> login </title>
+  <style>
+    body{
+      background-color: aqua;
+    }
+    </style>
+    </head>
+    <body>
+      <center><h1>Login page</h1>
+      <form>
+        Username <input type="text" name="userid" id="text" required><br><br>
+        Password <input type="password" name="pwsd" id="password" required><br><br>
+        <input type="button" onclick="click(this.form)" value="Login" required>
+        <input type="reset" value="reset"/>
+      </form>
+    </center>
+      <script>
+        function check(form)
+        {
+
+        ck_userid=/^1[A-ZA-ZA-ZA-Z0-90-9A-ZA-ZA-Z0-90-90-9]{12,}$/;
+        ck_pwd=/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]){8,}$/;
+            var uid=form.userid.value;
+            var pwd=form.pwsd.value;
+            if((ck_userid.test(uid))&&((ck_pwd.test(pwd))))
+            {
+                alert("welcome to wap")
+                document.write(Date()+" "+welcome+userid)
+                document.body.bgcolor="pink";
+            }
+            else
+            {
+                alert("invalid")
+            }
+        }
+      </script>
+    </body>
+  </html>

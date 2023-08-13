@@ -1,0 +1,48 @@
+<html>
+        <head><meta charset="utf-8">
+                <title>Login page</title>
+        <style>
+                body
+                        {
+                                bg-color:"#ddd"
+                        }
+        </style>
+
+        </head>
+
+        <body>
+                         <center> <h1> Login Page</h1><center>
+                <form>
+                         Username<input type="text" name="userid" id="text" required><br><br>
+                         Password<input type="password" name="pswrd" id="password" required><br><br>
+                        <input type="button" onclick="check(this.form)" value="Login" required>
+                        <input type="reset" value="Reset"/>
+                </form>
+
+         <script>
+                var ck_username = /^1[A-ZA-Z0-90-9A-ZA-ZA-Z0-90-90-9]{10,}$/;
+
+                var ck_pwd = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+
+
+                function check(form)
+                        {
+                                 var userid = form.userid.value;
+                                 var pwd = form.pswrd.value;
+                                 if ((ck_username.test(userid)) && (ck_pwd.test(pwd)))
+                                        {
+                                                
+                                                alert("Welcome to WAP LAB");
+                                        document.write(Date()+"   " +"Welcome"+userid);
+                                        document.body.bgColor="orange";
+
+                                        }
+
+                                else
+                                        {alert("INCORRECT USN OR PASSWORD")
+										
+                                        }
+                        }
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<html>
+<head>
+  <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+  <style>
+    svg rect {
+      fill: black;
+    }
+    svg text {
+      fill: white;
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <svg></svg>
+  <script>
+    var data = [10, 80, 40, 100, 70, 20];
+    var svgwidth = 300;
+    var svgheight = 500;
+    var padding = 5;
+    var barwidth = svgwidth/data.length;
+    var yscale = d3.scaleLeinear().domain([0, d3.max(data)-5]).range(0,svgheight);
+
+    var graph = d3.select("svg")
+      .attr("width", svgwidth)
+      .attr("height", svgheight);
+      
+    var bar = graph.selectAll("g")
+      .data(data)
+      .enter()
+      .append("g")
+      .attr("transform", function(d, i) {
+        return "translate(0," + i * barheight + ")";
+      });
+
+    bar.append("rect")
+      .enter()
+      .attr("width", function(d) {
+        return d * scalarfactor;
+      })
+      .attr("height", barheight - 1);
+
+    bar.append("text")
+      .attr("x", function(d) {
+        return d * scalarfactor;
+      })
+      .attr("y", barheight / 2)
+      .attr("dy", ".32em")
+      .text(function(d) {
+        return d;
+      });
+  </script>
+</body>
+</html>

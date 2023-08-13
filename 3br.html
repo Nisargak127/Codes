@@ -1,0 +1,31 @@
+<html>
+	<body>
+		<input type="button" onclick="load()" value="clickME">
+		<table border=1 id="showdata"></table>
+		<script>
+			function load(){
+				var x=new XMLHttpRequest();
+				x.onreadystatechange=function(){
+					if(this.readyState==4 && this.status==200)
+					{
+						myFunction(this);
+					}
+				}
+				x.open("GET","student.xml",true);
+				x.send();
+			}
+			function myFunction(xml){
+				var i;
+				var s=xml.responseXML;
+				var x=s.getElementsByTagName("student")
+				var table="<tr><th>Name</th><th>USN</th></tr>"
+				for(i=0;i<x.length;i++)
+				{
+					table+="<tr><td>"+x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue+"</td><td>"+x[i].getElementsByTagName("usn")[0].childNodes[0].nodeValue+"</td></tr>"
+				}
+				document.getElementById("showdata").innerHTML=table;
+			}
+		</script>
+	</body>
+</html>
+		

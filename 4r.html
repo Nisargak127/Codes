@@ -1,0 +1,55 @@
+<html>
+        <head>
+                <title>Login</title>
+                        <meta charset="utf-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1">
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+        </head>
+        <body>
+                <center>
+			<img src="Logo for letterhead.png" height=250px width=700px>
+                        <div class="card">
+                                <div class="card-header">
+                                        <h1>Login Details</h1>
+                                </div>
+                                <div class="card-body">
+
+                                        Username  : <input type="text" id="username">
+					<div id="u"></div><br><br><br>			
+			
+                                        Password  : <input type="password" id="password">
+					<div id="p"></div>
+
+                                </div>
+                                <div class="card-footer">
+                                        <input type="button" class="btn btn-info" onclick="login()" value="LOGIN">
+                                </div>
+                        </div>
+                </center>
+		<script>
+			function login() {
+				const uname =/^[a-zA-Z0-9_]{6,24}$/;
+				const passwd =/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%_]).{8,16}$/;
+				var username =document.getElementById("username").value;
+				var password =document.getElementById("password").value;
+				
+				if(!username.match(uname)){
+					document.getElementById("u").innerHTML="username must be 6 or more characters long";
+					setTimeout(function(){
+					document.getElementById("u").innerHTML=""},3000)
+				}
+				else if(!password.match(passwd)){
+					document.getElementById("p").innerHTML="password must contain lowercase,uppercase,digits and special characters and should be 8-16 characters long";
+					setTimeout(function(){
+                                        document.getElementById("p").innerHTML=""},3000)
+				}
+				else{
+					var date=new Date();
+					document.write("Welcome "+username+" at "+date);
+					document.body.style.backgroundColor="lightblue";
+				}
+			}
+		</script>	
+        </body>
+</html>
+

@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <script type = "text/javascript">
+            function data(){
+                var students=[{
+                    "name":"acd",
+                    "id":"123"
+                },
+            {
+                "name":"dfg",
+                "id":"345"
+            },
+        {
+            "name":"jgk",
+            "id":"565"
+        }];
+        var tablebody="<table border=1><tr><th>name</th><th>id</th></tr>";
+            students.forEach(function (d){
+                tablebody+="<tr><td>"+d.name+"</td><td>"+d.id+"</td></tr>";
+            });
+            tablebody+="</table>";
+            document.getElementById("showdata").innerHTML=tablebody;
+            }
+        </script>
+    </head>
+    <body>
+        <input type="button" onclick="data()" value="Click Me">
+        <p id="showdata"></p>
+    </body>
+</html>
